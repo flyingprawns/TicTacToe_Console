@@ -1,0 +1,16 @@
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.exe
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.deps.json
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.runtimeconfig.json
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.runtimeconfig.dev.json
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.dll
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\ref\TicTacToe_Console.dll
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\bin\Debug\net5.0\TicTacToe_Console.pdb
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.csproj.AssemblyReference.cache
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.AssemblyInfoInputs.cache
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.AssemblyInfo.cs
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.csproj.CoreCompileInputs.cache
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.dll
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\ref\TicTacToe_Console.dll
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.pdb
+C:\Users\Jack\Documents\Development\C#\TicTacToe Project\TicTacToe_Console\TicTacToe_Console\obj\Debug\net5.0\TicTacToe_Console.genruntimeconfig.cache
