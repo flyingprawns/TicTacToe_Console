@@ -157,7 +157,7 @@ namespace TicTacToe_Console
         }
         private bool isValidSquare(int square)
         {
-            if(1 <= square && square <= 9)
+            if(1 <= square && square <= 9 && squares[square-1] == ' ')
             {
                 return true;
             }
@@ -178,7 +178,6 @@ namespace TicTacToe_Console
                 Console.WriteLine("Other commands: 'quit' or 'restart'.");
 
                 //Get and process userInput
-                userInput = "";
                 userInput = Console.ReadLine();
                 if (userInput.ToLower() == "quit") 
                 {
@@ -206,7 +205,16 @@ namespace TicTacToe_Console
                 //Try to place the piece!
                 if (isValidSquare(square))
                 {
-                    PlacePiece(square); //TODO: does (char)turn convert to 'X' or 'O' ?
+                    PlacePiece(square);
+                    if (GameIsOver() == true)
+                    {
+                        DisplayBoard();
+                        Console.WriteLine();
+                        Console.WriteLine("=========================");
+                        Console.WriteLine(" {0} has won the game !!!", turn);
+                        Console.WriteLine("=========================");
+                        break;
+                    }
                     NextTurn();
                 }
                 else
@@ -217,8 +225,63 @@ namespace TicTacToe_Console
             }
 
             // End Game
+            ResetGame();
             Console.WriteLine("Exiting game. Press 'enter' to acknowledge.");
             Console.ReadLine();
+        }
+        private bool GameIsOver()
+        {   
+            //Get the side ('X' or 'O') that placed the last piece
+            char c = '?';
+            if(turn == Turn.O)
+            {
+                c = 'O';
+            }
+            else if (turn == Turn.X)
+            {
+                c = 'X';
+            }
+            else
+            {
+                Console.WriteLine("Error in TicTacToe_Board.GameIsOver(). Private field 'turn' is not a valid value.");
+                Console.ReadLine();
+                return false;
+            }
+
+            //Check if that side won
+            if(squares[0] == c && squares[1] == c && squares[2] == c)   //horizontal connect 3
+            {
+                return true;
+            }
+            if (squares[3] == c && squares[4] == c && squares[5] == c)
+            {
+                return true;
+            }
+            if (squares[6] == c && squares[7] == c && squares[8] == c)
+            {
+                return true;
+            }
+            if (squares[0] == c && squares[3] == c && squares[6] == c)   //vertical connect 3
+            {
+                return true;
+            }
+            if (squares[1] == c && squares[4] == c && squares[7] == c)
+            {
+                return true;
+            }
+            if (squares[2] == c && squares[5] == c && squares[8] == c)
+            {
+                return true;
+            }
+            if (squares[0] == c && squares[4] == c && squares[8] == c)   //diagonal connect 3
+            {
+                return true;
+            }
+            if (squares[2] == c && squares[4] == c && squares[6] == c)
+            {
+                return true;
+            }
+            return false;
         }
         private void ResetGame()
         {
