@@ -1,0 +1,12 @@
+Tic-Tac-Toe Console Game
+--------------------------
+Author: Jack Qijie Zhu
+--------------------------
+Completed: 8/16/2021
+--------------------------
+
+My first C# project, a very simple console-based Tic-Tac-Toe game.
+
+It took about 6 hours to complete. My lack of experience slowed me down. I spent too much time thinking ahead and planning for features that I MIGHT need. Overthinking muddled my thought process and made simple tasks appear complicated. 
+
+I'll get better with more experience. On to the next project.
