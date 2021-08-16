@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace TicTacToe_Console
 {
@@ -38,16 +39,14 @@ namespace TicTacToe_Console
                 if(userInput == "1")
                 {
                     Console.WriteLine();
-                    Console.WriteLine("========================");
-                    Console.WriteLine("Game Board Placeholder");
+                    Console.WriteLine("Tic-Tac-Toe game is starting! Press 'enter' to acknowledge.");
+                    Console.ReadLine();
+
+                    TicTacToe_Board game = new TicTacToe_Board();
+                    game.StartGame();
+
                     Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine("========================");
-                    Console.WriteLine();
-                    Console.WriteLine("Enter any key to return to the main menu.");
+                    Console.WriteLine("Game is over. Press 'enter' to return to main menu.");
                     Console.ReadLine();
                 }
                 else if (userInput == "2")
@@ -86,4 +85,149 @@ namespace TicTacToe_Console
 
 
      }//END class Program
+
+    public class TicTacToe_Board
+    {
+        // -----
+        // Enum
+        // -----
+        enum Turn
+        {
+            X = 1, O = 0
+        }
+
+        // -------
+        // Fields
+        // -------
+        private char[] squares;
+        private Turn turn;
+
+        // -------------
+        // Constructors
+        // -------------
+        public TicTacToe_Board()
+        {
+            turn = Turn.X;
+            squares = new char[9];
+            for(int i = 0; i <= 8; i++)
+            {
+                squares[i] = ' ';
+            }
+        }
+
+        // --------
+        // Methods
+        // --------
+        private void DisplayBoard()
+        {
+            Console.WriteLine();
+            Console.WriteLine("=============");
+            Console.WriteLine(" {0}  |  {1}  |  {2} ", squares[0], squares[1], squares[2]);
+            Console.WriteLine("_____________");
+            Console.WriteLine();
+            Console.WriteLine(" {0}  |  {1}  |  {2} ", squares[3], squares[4], squares[5]);
+            Console.WriteLine("_____________");
+            Console.WriteLine();
+            Console.WriteLine(" {0}  |  {1}  |  {2} ", squares[6], squares[7], squares[8]);
+            Console.WriteLine("=============");
+            Console.WriteLine();
+        }
+        private void PlacePiece(int square)
+        {
+            Debug.Assert(isValidSquare(square), "Error in TicTacToe_Board.PlacePiece(). Parameter 'square' is invalid.");
+
+            char piece;
+            if(turn == Turn.X)
+            {
+                piece = 'X';
+            }
+            else if (turn == Turn.O)
+            {
+                piece = 'O';
+            }
+            else
+            {
+                piece = '?';
+            }
+            squares[square-1] = piece;
+        }
+        private void NextTurn()
+        {
+            turn = 1 - turn;
+        }
+        private bool isValidSquare(int square)
+        {
+            if(1 <= square && square <= 9)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void StartGame()
+        {
+            string userInput;
+
+            // One iteration = one 'turn'
+            while (true)
+            {
+                //Display Game Interface
+                Console.WriteLine(" Tic Tac Toe ");
+                DisplayBoard();
+                Console.WriteLine("The board's squares are numbered from 1-9.");
+                Console.WriteLine("Enter a number to place a piece");
+                Console.WriteLine("Other commands: 'quit' or 'restart'.");
+
+                //Get and process userInput
+                userInput = "";
+                userInput = Console.ReadLine();
+                if (userInput.ToLower() == "quit") 
+                {
+                    break;
+                }
+                else if (userInput.ToLower() == "restart")
+                {
+                    ResetGame();
+                    continue;
+                }
+
+                //Try to convert userInput to integer
+                int square;
+                try
+                {
+                    square = Convert.ToInt32(userInput);
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Please enter a valid square or command. Press 'enter' to try again.");
+                    Console.ReadLine();
+                    continue;
+                }
+
+                //Try to place the piece!
+                if (isValidSquare(square))
+                {
+                    PlacePiece(square); //TODO: does (char)turn convert to 'X' or 'O' ?
+                    NextTurn();
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid square or command. Press 'enter' to try again.");
+                    Console.ReadLine();
+                }
+            }
+
+            // End Game
+            Console.WriteLine("Exiting game. Press 'enter' to acknowledge.");
+            Console.ReadLine();
+        }
+        private void ResetGame()
+        {
+            turn = Turn.X;
+            squares = new char[9];
+            for (int i = 0; i <= 8; i++)
+            {
+                squares[i] = ' ';
+            }
+        }
+    }
 }//END namespace TicTacToe_Console
